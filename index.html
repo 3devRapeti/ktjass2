@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href='https://fonts.googleapis.com/css?family=Big Shoulders Display' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/stylesheets/main.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel=”stylesheet” href=”css/bootstrap.css”> 
+        <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+        <script src="https://fonts.googleapis.com/css?family=Meie+Script|Shadows+Into+Light|Arvo|Monda"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <style>
+            body {
+                background: url("bgi3.webp") center no-repeat;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                font-family: 'Bungee Inline';
+                padding-right: 100px;
+                padding-left: 100px;
+                font-weight: lighter;
+                font-size: 20px;
+                color: #f5f38f;
+                align-content: center;
+                text-align: center;
+            }
+            .head {
+                padding-bottom: 20px;
+            }
+            .doors {
+                padding-top: 20px;
+                padding-bottom: 100px;
+            }
+            h1 {
+                background: url("trial1.webp") repeat;
+                background-size: 30%;
+                color: transparent;
+                -webkit-background-clip: text;
+                font-size: 180px;
+                font-family: Advent Pro;
+                font-weight: bolder;
+            }
+            .overlay {
+                height: 100%;
+                width: 100%;
+                display: none;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(255, 255, 255, 0.5);
+                overflow-x: hidden;
+                transition: 2s;
+            }
+
+            .overlay-content {
+                position: relative;
+                top: -10%;
+                width: 90%;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .overlay a {
+                padding-left: 100px;
+                text-align: center;
+                align-content: center;
+                text-decoration: none;
+                font-size: 36px;
+                color: #c94d4d;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .overlay a:hover, .overlay a:focus {
+                color: #c90808;
+            }
+
+            @media screen and (max-height: 450px) {
+                .overlay a {font-size: 20px}
+                .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <img src="newton1.png" style="width:1000px;">
+                <a href="ktjass2.html">PROCEED</a>
+            </div>
+        </div>
+        <div class="head">
+            <h1>Scientist Play</h1>
+            Scientists are in general noobs in playin games, so help them by playing a game for them</br>
+            Now open a door to choose a scientist and play a game for them.
+        </div>
+        <div class="doors">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <canvas id="myCanvas2" onclick="message()" width="150" height="300" style="border:10px solid #682904; cursor:pointer; background-color: transparent; box-shadow: 0px 0px 50px white;">
+            </div>
+            <div class="col-md-5">
+                <canvas id="myCanvas1" onclick="loop()" width="150" height="300" style="border:10px solid #682904; cursor:pointer; background-color: #ffffff; box-shadow: 0px 0px 50px white;">
+                Your browser does not support the HTML canvas tag.</canvas>
+            </div>
+            <div class="col-md-1"></div>
+            <script>
+                var canvas = document.getElementById("myCanvas2");
+                var ctx = canvas.getContext("2d");
+                var ctx1 = canvas.getContext("2d");
+                var ctx2 = canvas.getContext("2d");
+                var ctx3 = canvas.getContext("2d");
+                var ctx4 = canvas.getContext("2d");
+                var cx = 140;
+                var cy = 140;
+                ctx1.beginPath();
+                ctx1.moveTo(0,0);
+                ctx1.lineTo(0,300);
+                ctx1.lineTo(150,300);
+                ctx1.lineTo(150,0);
+                ctx1.lineTo(0,0);
+                ctx1.fillStyle = "#a16b06";
+                ctx1.fill();
+                ctx1.stroke();
+
+                ctx1.beginPath();
+                ctx1.arc(cx, cy, 5, 0, 2 * Math.PI);
+                ctx1.fillStyle="#000000"
+                ctx1.fill();
+                ctx1.stroke();
+                
+                
+                var posY = 0;
+                var posX = 150;
+                var speed = 2.2;
+                var speed1 = 0.85;
+                
+                
+                function drawLine() {
+                    ctx.clearRect(0,0,canvas.width, canvas.height);
+                    ctx.beginPath();
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(posX,posY);
+                    ctx.lineTo(posX,300-posY);
+                    ctx.lineTo(0,300);
+                    
+                    ctx.fillStyle = "#a16b06";
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+                    ctx.fillStyle="#000000"
+                    ctx.fill();
+                    ctx.stroke();
+                }
+                
+                drawLine();
+
+                function message() {
+                    alert('you have to help atleast two scientists for opening this door');
+                }
+            </script>
+            <script>
+                var canvas = document.getElementById("myCanvas1");
+                var ctx = canvas.getContext("2d");
+                var ctx1 = canvas.getContext("2d");
+                var ctx2 = canvas.getContext("2d");
+                var ctx3 = canvas.getContext("2d");
+                var ctx4 = canvas.getContext("2d");
+                var cx = 140;
+                var cy = 140;
+                ctx1.beginPath();
+                ctx1.moveTo(0,0);
+                ctx1.lineTo(0,300);
+                ctx1.lineTo(150,300);
+                ctx1.lineTo(150,0);
+                ctx1.lineTo(0,0);
+                ctx1.fillStyle = "#a16b06";
+                ctx1.fill();
+                ctx1.stroke();
+
+                ctx1.beginPath();
+                ctx1.arc(cx, cy, 5, 0, 2 * Math.PI);
+                ctx1.fillStyle="#000000"
+                ctx1.fill();
+                ctx1.stroke();
+                
+                
+                var posY = 0;
+                var posX = 150;
+                var speed = 2.2;
+                var speed1 = 0.85;
+                
+                
+                function drawLine() {
+                    ctx.beginPath();
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(posX,posY);
+                    ctx.lineTo(posX,300-posY);
+                    ctx.lineTo(0,300);
+                    
+                    ctx.fillStyle = "#a16b06";
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+                    ctx.fillStyle="#000000"
+                    ctx.fill();
+                    ctx.stroke();
+                }
+                
+                function moveLine () {
+                    if(posY <= 40) {
+                        posY += speed1;
+                    }
+                    if(posX >= 40) {
+                        posX -= speed;
+                    }
+                    if(cx >= 40) {
+                        cx -= speed;
+                    }
+                    if(posX==40)
+                    {
+                        openNav();
+                    }
+                }
+                
+                function loop() {
+                      // clear old frame;
+                    ctx.clearRect(0,0,canvas.width, canvas.height);
+                    drawLine();
+                    moveLine();
+                    requestAnimationFrame(loop);
+                }
+
+                function openNav() {
+                    document.getElementById("myNav").style.display = "block";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.display = "none";
+                }
+            </script>
+            
+        </div>
+    </body>
+</html>
