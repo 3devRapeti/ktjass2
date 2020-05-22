@@ -16,7 +16,7 @@
                 
             }
             .dec {
-                padding-left: 400px;
+                padding-left: 450px;
                 padding-right: 100px;
             }
             .gameboard {
@@ -28,6 +28,8 @@
             }
             .fa-gear {
                 color: gray;
+                font-size:100px; 
+                float: right;
             }
             .fa-gear:hover {
                 color: gold;
@@ -97,15 +99,69 @@
                     right: 35px;
                 }
             }
+            @media screen and (max-width: 900px) {
+                .dec {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                h1.ovehead {
+                    font-size: 35px;
+                }
+                img.snake-s {
+                    width: 60px;
+                    height: 100px;
+                }
+                img.snake-nake {
+                    width: 170px;
+                    height: 100px;
+                }
+                img.newtoninfo {
+                    width: 180px;
+                    padding-left: 100px;
+                } 
+                .overlay {
+                    width: 90%;
+                    height: 70%;
+                    top: 1.7%;
+                    border-radius: 30px;
+                }
+                .overlay-content {
+                    padding-left: 10px;
+                }
+                .gameboard {
+                    padding-right: 0px;
+                }
+                canvas {
+                    width: 348px;
+                    height: 355px;
+                }
+                img.hunger {
+                    width: 90px;
+                    padding-right: 5px;
+                }
+                i.fulls {
+                    display: none;
+                    padding-right: 30px;
+                    font-size: 40px;
+                }
+                i.rotate {
+                    font-size: 60px;
+                }
+            }
             .slidecontainer {
                 width: 100%; /* Width of the outside container */
+            }
+            @media screen and (max-width: 600px) {
+                .note {
+                        display:block;
+                    }
             }
 
             /* The slider itself */
             .slider {
                 -webkit-appearance: none;  /* Override default CSS styles */
                 appearance: none;
-                width: 50%; /* Full-width */
+                width: 40% !important; /* Full-width */
                 height: 5px; /* Specified height */
                 background: #d3d3d3; /* Grey background */
                 border-radius: 500px;
@@ -148,6 +204,10 @@
             .hunger {
                 opacity: 0.7;
                 transition: 0.3s;
+                width:110px; 
+                float:right; 
+                cursor:pointer; 
+                padding-right: 160px;
             }
             .hunger:hover {
                 opacity: 1;
@@ -166,50 +226,63 @@
             .fulls {
                 padding-right: 180px;
                 color: gray;
+                font-size: 80px; 
+                float:right;
+            }
+            .snake-s {
+                width:100px;
+            }
+            .snake-nake {
+                width:300px;
+            }
+            .newtoninfo {
+                width:500px;
+            }
+            .overlay-content {
+                font-size: 20px;
+            }
+            i.fas {
+                display: block;
+
+            }
+            .ovehead {
+                color: rgb(255, 57, 57);
+                font-size: 50px; 
+                line-height: 20px;
+            }
+            .note {
+                display : none;
+                color: gray;
+                font-style: 'Amatic SC';
             }
         </style>
     </head>
     <body onload="startGame()">
         <div id="myNav" class="overlay">
             <div class="overlay-content">
-                <i id="settings1" class="fa fa-gear rotate" onclick="reverserot()" style="font-size:100px; float: right; background-color: transparent;"></i></br>
-                <h1 style="color: rgb(255, 57, 57);"><u>Newton's laws of game:</u></h1>
-                <p style="color:gold;"><u>first LAW</u><input type="checkbox" id="hungry" name="hungry" value="off" style="display:none;"><label for="hungry" style="padding-right: 100px;" onclick="hungrymode()"><img src="monster1.png" class="hunger" style="width:110px; float:right; cursor:pointer; padding-right: 160px;"></label></p>
+                <i id="settings1" class="fa fa-gear rotate" onclick="reverserot()" style="float: right;"></i></br>
+                <h1 class="ovehead"><u>Newton's laws of game:</u></h1>
+                <p style="color:gold;"><u>first LAW</u><input type="checkbox" id="hungry" name="hungry" value="off" style="display:none;"><label for="hungry"  onclick="hungrymode()"><img src="monster1.png" class="hunger"></label></p>
                 <p>relative time:</p><input type="range" min="-9" max="9" value="0" class="slider" id="myRange">
                 <p style="font-size: 20px;">increase the time of snake relatively to yours by: <span id="demo"></span></p>
                 <p style="color:gold;"><u>SECOND LAW</u></p><input type="checkbox" id="maze" name="maze" value="on" style="width: 10px;color:gold;">
-                <label for="maze" style="line-height: 30px;">hurdles</label><i id="fullsicon" class="fas fa-expand-arrows-alt fulls" style="font-size: 80px; float:right;" onclick="openFullscreen();"></i>
+                <label for="maze" style="line-height: 30px;">hurdles</label><i id="fullsicon" class="fas fa-expand-arrows-alt fulls" onclick="openFullscreen();"></i>
                 <p style="color:gold;"><u>thirD LAW</u></p><input type="checkbox" id="auto" name="maze" value="on" style="width: 10px;color:gold;">
                 <label for="auto" style="line-height: 30px;">Give an impulse to MR.NEWTON TO COMPLETE IT OWN HIS OWN</label>
-                
             </div>
         </div>
         <div class="dec">
-            <img src="snakeimg.png" style="width:100px;">
-            <img src="bgiedit1.png" style="width:300px;">
-            <i id="settings" class="fa fa-gear rotate" onclick="rot()" style="font-size:100px; float: right;"></i>
+            <img src="snakeimg.png" class="snake-s">
+            <img src="bgiedit1.png" class="snake-nake">
+            <i id="settings" class="fa fa-gear rotate" onclick="rot()" style=" float: right;"></i>
         </div>
         <div class="gameboard">
-            <img src="newton2.png" style="width:500px;">
+            <img src="newton2.png"  class="newtoninfo">
             <canvas id="viewport" width="640" height="480" style="float: right;"></canvas>
         </div>
-        <script>
-            var elem = document.getElementById("viewport");
-            function openFullscreen() {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } 
-                else if (elem.mozRequestFullScreen) { /* Firefox */
-                    elem.mozRequestFullScreen();
-                } 
-                else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                    elem.webkitRequestFullscreen();
-                } 
-                else if (elem.msRequestFullscreen) { /* IE/Edge */
-                    elem.msRequestFullscreen();
-                }
-            }
-        </script>
+        <div class="note">
+            <p> Rotate your phone with half the height oh phone by 90 degrees for best view. </p>
+        </div>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <script>
             function rot() {
@@ -259,6 +332,20 @@
                 var loadcount = 0;
                 var loadtotal = 0;
                 var preloaded = false;
+                function openFullscreen() {
+                    if (canvas.requestFullscreen) {
+                        canvas.requestFullscreen();
+                    } 
+                    else if (canvas.mozRequestFullScreen) { /* Firefox */
+                        canvas.mozRequestFullScreen();
+                    } 
+                    else if (canvas.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                        canvas.webkitRequestFullscreen();
+                    } 
+                    else if (canvas.msRequestFullscreen) { /* IE/Edge */
+                        canvas.msRequestFullscreen();
+                    }
+                }
                 function loadImages(imagefiles) {
                     loadcount = 0;
                     loadtotal = imagefiles.length;
@@ -453,7 +540,10 @@
                 }
                 function tryNewGame() {
                     if (gameovertime > gameoverdelay) {
-                        newGame();
+                        openFullscreen();
+                        setTimeout(function(){
+                            newGame();
+                        },2000);
                         gameover = false;
                     }
                 }
@@ -784,6 +874,13 @@
                         y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
                     };
                 }
+                function getMousePos(canvas, e) {
+                    var rect = canvas.getBoundingClientRect();
+                    return     {
+                        x: Math.round((e.clientX - rect.left)/(rect.right - rect.left)*canvas.width),
+                        y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
+                    };
+                }
                 document.addEventListener('touchstart', handleTouchStart, false);        
                 document.addEventListener('touchmove', handleTouchMove, false);
 
@@ -814,22 +911,22 @@
 
                     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
                         if ( xDiff > 0 ) {
-                            if (snake.direction != 1)  {
-                                snake.direction = 3;
+                            if (snake.direction != 2)  {
+                                snake.direction = 0;
                             }
                         } else {
-                            if (snake.direction != 3)  {
-                                snake.direction = 1;
+                            if (snake.direction != 0)  {
+                                snake.direction = 2;
                             }
                         }                       
                     } else {
                         if ( yDiff > 0 ) {
-                            if (snake.direction != 2)  {
-                                snake.direction = 0;
+                            if (snake.direction != 1)  {
+                                snake.direction = 3;
                             }
                         } else { 
-                            if (snake.direction != 0)  {
-                                snake.direction = 2;
+                            if (snake.direction != 3)  {
+                                snake.direction = 1;
                             }
                         }                                                                 
                     }
