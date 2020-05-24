@@ -6,7 +6,7 @@
         <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/stylesheets/main.css">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
@@ -71,7 +71,6 @@
                 text-align: center;
                 margin-top: 30px;
             }
-
             .overlay a {
                 padding-left: 100px;
                 text-align: center;
@@ -82,11 +81,12 @@
                 display: block;
                 transition: 0.3s;
             }
-
             .overlay a:hover, .overlay a:focus {
                 color: #c90808;
             }
-
+            .title {
+                font-size: ;
+            }
             @media screen and (max-height: 450px) {
                 .overlay a {font-size: 20px}
                 .overlay .closebtn {
@@ -95,19 +95,155 @@
                 right: 35px;
             }
             }
+            @media screen and (max-width: 600px) {
+                h1 {
+                    font-size: 35px;
+                    background: url("trial1.png") repeat;
+                    background-size: 18%;
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    font-weight: bold;
+                }
+                body {
+                    padding-right: 0px;
+                    padding-left: 0px;
+                    background: url("bgi4.jpg") repeat;
+                    color: #f2f2f2;
+                }
+                div.head {
+                    font-size: 15px;
+                }
+                nav.topnav {
+                    display: block;
+                }
+                div.footer {
+                    display: block;
+                }
+                div.doors1 {
+                    display: block;
+                }
+                div.nothing {
+                    display: block;
+                }
+                div.doors {
+                    display: none;
+                }
+                .overlay-content {
+                    top: 10%;
+                    width: 50%;
+                    margin-left: -50px;
+                    font-size: 25px;
+                }
+                img.newt {
+                    width: 400px;
+                }
+                .overlay a {
+                    padding-left: 165px;
+                    font-size: 25px;
+                }
+            }
+            .topnav {
+
+                background-color: black;
+                border: 0;
+                letter-spacing: 5px;
+                position: fixed;
+                padding-left: 10px;
+                border: inherit;
+                border-color: transparent;
+                box-shadow: inset 0px 0px 40px 40px transparent;
+                align-content: center;
+                text-align: center;
+                display: none;
+            }
+            .topnav a {
+                float: right;
+                text-align: center;
+                border-radius: 1000px;
+                text-decoration: none;
+            }
+            .topnav b {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding-left: 10px;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                text-decoration: none;
+            }
+            .splatt:hover {
+                background-color: #fd8a8a;
+                color: #1e0070;
+            }
+            .splatt {
+                color: #f2f2f2;
+                background-color: #ca0000;
+                border-radius: 1000px;
+            }
+            .normal {
+                color: #f2f2f2;
+                border-left: 1px solid #f2f2f2;
+            }
+            .footer {
+                position: fixed;
+                float: bottom;
+                background-color: black;
+                color:rgb(133, 12, 163);
+                width: 100%;
+                height: 5%;
+                bottom: 0;
+                left: 0;
+                z-index: 5;
+                font-family: 'Advent Pro';
+                font-weight: 900;
+                box-shadow: 0px 0px 50px black;
+                display: none;
+            }
+            .gallery1 {
+                margin: 5px;
+                border-radius: 5px;
+                float: left;
+                width: 280px;
+                background-color: rgba(96, 46, 109, 0.7);
+            }
+            .doors1 {
+                padding-left: 50px;
+                padding-bottom: 20px;
+                display: none;
+            }
+            .nothing {
+                padding: 10px;
+                display: none;
+            }
+            .newt {
+                width: 1000px;
+            }
         </style>
     </head>
     <body>
+        <nav class="topnav navbar-fixed-top navbar-expand-md navbar-light bg-light" id="navigtionbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <b class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                        <h1 class="title">Scientist Play</h1>
+                    </b>
+                    <ul class="nav navbar-nav">
+                        <li><a class="splatt" href="https://www.google.com/covid19/" target="_blank"><i class='fas fa-exclamation' style="font-size: 20px"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="footer"><p style="letter-spacing: 5px;">THUNDER   STAR   GAMES</p></div>
         <div id="myNav" class="overlay">
             <div class="overlay-content">
-                <img src="newton1.png" style="width:1000px;">
+                <img src="newton1.png" class="newt">
                 <a href="ktjass2.html">PROCEED</a>
             </div>
         </div>
         <div class="head">
-            <h1>Scientist Play</h1>
-            Scientists are in general noobs in playin games, so help them by playing a game for them</br>
-            Now open a door to choose a scientist and play a game for them.
+            <h1 class="title">Scientist Play</h1>
+            <p>Scientists are in general noobs in playin games, so help them by playing a game for them</br>
+            Now open a door to choose a scientist and play a game for them.</p>
         </div>
         <div class="doors">
             <div class="col-md-1"></div>
@@ -260,5 +396,155 @@
             </script>
             
         </div>
+        <div class="doors1">
+            <div class="gallery1">
+                <canvas id="myCanvas3" onclick="message()" width="150" height="300" style="border:10px solid #682904; cursor:pointer; background-color: transparent; box-shadow: 0px 0px 50px white;"></canvas>
+                <p style="font-size: 25px; font-family: 'Abel';">DOOR 1</p>
+            </div>
+            <div class="gallery1">
+                <canvas id="myCanvas4" onclick="loop()" width="150" height="300" style="border:10px solid #682904; cursor:pointer; background-color: #ffffff; box-shadow: 0px 0px 50px white;"></canvas>
+                <p style="font-size: 25px; font-family: 'Abel';">DOOR 2</p>
+            </div>
+            <script>
+                var canvas = document.getElementById("myCanvas3");
+                var ctx = canvas.getContext("2d");
+                var ctx1 = canvas.getContext("2d");
+                var ctx2 = canvas.getContext("2d");
+                var ctx3 = canvas.getContext("2d");
+                var ctx4 = canvas.getContext("2d");
+                var cx = 140;
+                var cy = 140;
+                ctx1.beginPath();
+                ctx1.moveTo(0,0);
+                ctx1.lineTo(0,300);
+                ctx1.lineTo(150,300);
+                ctx1.lineTo(150,0);
+                ctx1.lineTo(0,0);
+                ctx1.fillStyle = "#a16b06";
+                ctx1.fill();
+                ctx1.stroke();
+
+                ctx1.beginPath();
+                ctx1.arc(cx, cy, 5, 0, 2 * Math.PI);
+                ctx1.fillStyle="#000000"
+                ctx1.fill();
+                ctx1.stroke();
+                
+                
+                var posY = 0;
+                var posX = 150;
+                var speed = 2.2;
+                var speed1 = 0.85;
+                
+                
+                function drawLine() {
+                    ctx.clearRect(0,0,canvas.width, canvas.height);
+                    ctx.beginPath();
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(posX,posY);
+                    ctx.lineTo(posX,300-posY);
+                    ctx.lineTo(0,300);
+                    
+                    ctx.fillStyle = "#a16b06";
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+                    ctx.fillStyle="#000000"
+                    ctx.fill();
+                    ctx.stroke();
+                }
+                
+                drawLine();
+
+                function message() {
+                    alert('you have to help atleast two scientists for opening this door');
+                }
+            </script>
+            <script>
+                var canvas = document.getElementById("myCanvas4");
+                var ctx = canvas.getContext("2d");
+                var ctx1 = canvas.getContext("2d");
+                var ctx2 = canvas.getContext("2d");
+                var ctx3 = canvas.getContext("2d");
+                var ctx4 = canvas.getContext("2d");
+                var cx = 140;
+                var cy = 140;
+                ctx1.beginPath();
+                ctx1.moveTo(0,0);
+                ctx1.lineTo(0,300);
+                ctx1.lineTo(150,300);
+                ctx1.lineTo(150,0);
+                ctx1.lineTo(0,0);
+                ctx1.fillStyle = "#a16b06";
+                ctx1.fill();
+                ctx1.stroke();
+
+                ctx1.beginPath();
+                ctx1.arc(cx, cy, 5, 0, 2 * Math.PI);
+                ctx1.fillStyle="#000000"
+                ctx1.fill();
+                ctx1.stroke();
+                
+                
+                var posY = 0;
+                var posX = 150;
+                var speed = 2.2;
+                var speed1 = 0.85;
+                
+                
+                function drawLine() {
+                    ctx.beginPath();
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(posX,posY);
+                    ctx.lineTo(posX,300-posY);
+                    ctx.lineTo(0,300);
+                    
+                    ctx.fillStyle = "#a16b06";
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+                    ctx.fillStyle="#000000"
+                    ctx.fill();
+                    ctx.stroke();
+                }
+                
+                function moveLine () {
+                    if(posY <= 40) {
+                        posY += speed1;
+                    }
+                    if(posX >= 40) {
+                        posX -= speed;
+                    }
+                    if(cx >= 40) {
+                        cx -= speed;
+                    }
+                    if(posX==40)
+                    {
+                        openNav();
+                    }
+                }
+                
+                function loop() {
+                      // clear old frame;
+                    ctx.clearRect(0,0,canvas.width, canvas.height);
+                    drawLine();
+                    moveLine();
+                    requestAnimationFrame(loop);
+                }
+
+                function openNav() {
+                    document.getElementById("myNav").style.display = "block";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.display = "none";
+                }
+            </script>
+        </div>
+        <div class="nothing"> <p style="color:transparent;">yyyyyyyyyyyyyyyyyyyyyy</p></div>
     </body>
 </html>
